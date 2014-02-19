@@ -1,0 +1,46 @@
+extends layout
+
+block content
+	.jumbotron
+		h1= "I'm Jaded"
+		p Welcome to #{title}
+		h2= "Absurdity is the king, but love saves us from it."
+		- person = "Roni"
+		h3= "BTW, " + person + ' is brillaint.'
+	.row
+		.col-md-6.col-md-offset-4
+			p Come join the geek army!
+				p Here's where the magic happens: 
+					a(href="http://winter2014.refactoru.com") Student Site
+			mixin byow(partier, wine)
+				li #{partier} is bringing #{wine}
+
+			ul#party
+				+byow("MacGravor", "Pinot Noir")
+				+byow("Raine", "Xarel.lo")
+				
+	.row
+		.col-md-8.col-md-offset-2
+			ul <strong>List boy geeks</strong>
+					for user in users
+						if user.gender == "male"
+							li= user.name + ' - ' + user.gender
+			ul <strong>List girl geeks</strong>
+					for user in users
+						if user.gender == "female"
+							li= user.name + ' - ' + user.gender
+			ul <strong>List all geeks</strong>
+					for user in users
+						li= user.name + ' - ' + user.gender
+			
+	.row
+		p
+			| Wanna have fun?
+			| Come join us!
+		p 
+			input#first-name.name(type="text", placeholder="enter name here")
+
+
+		
+//if lt IE 8
+script(src="/ie-sucks.js")
